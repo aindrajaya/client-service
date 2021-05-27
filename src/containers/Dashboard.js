@@ -10,7 +10,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 const Dashboard = () => {
     return (
-        <Router>
+        <Router basename="/statechannel">
             <SideBar />
             <Nav />
             <Route path="/" component={Homepage}/>
