@@ -24,7 +24,7 @@ const Sidebar = () => {
         <ContainerSid>
             <Profile />
             <Menu />
-            <ToggleSwitch />
+            {/* <ToggleSwitch /> */}
         </ContainerSid>
     )
 }

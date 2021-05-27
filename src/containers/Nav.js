@@ -23,10 +23,18 @@ const MessageIcon = styled.span`
     font-size: 27px;
     cursor: pointer;
 `
+
+const Welcome = styled.h1`
+    color:  ${({ theme }) => theme.switchColorPrimary};
+    font-size: 27px;
+    align-items: flex-end;
+`
+
 const Nav = () => {
     return (
         <Container>
-            <MessageIcon className="iconify" data-inline="false" data-icon="mdi-light:email"></MessageIcon>
+            {/* <MessageIcon className="iconify" data-inline="false" data-icon="mdi-light:email"></MessageIcon> */}
+            <Welcome>Hello, Welcome</Welcome>
             <ProfileImg src={require('../assets/images/profilelg.png')} />
         </Container>
     )
