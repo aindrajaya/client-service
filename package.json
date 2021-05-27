@@ -2,7 +2,6 @@
   "name": "figma-design-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/stateChannel",
   "dependencies": {
     "@iconify/icons-mdi-light": "^1.0.3",
     "@iconify/react": "^1.1.2",
