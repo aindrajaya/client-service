@@ -3,8 +3,6 @@ import ChannelList from './ChannelList'
 import FriendList from './FriendList'
 import styled from 'styled-components'
 import {satu, dua, ban} from "../../../assets/channel"
-import axios from 'axios'
-
 
 const ContainerList = styled.div`
     width: auto;
@@ -16,16 +14,16 @@ const ContainerList = styled.div`
 const Top = styled.div`
   border-radius: 8px;
   height: 10vh;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   text-transform: uppercase;
   width: 100%;
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1.3rem;
+  font-weight: 650;
   text-align: center;
-  /* background-image: ${({ theme }) => theme.gradient}; */
-  color: #674bd9;
+  background-color: ${({ theme }) => theme.blueCool};
+  color: #f1f2f6;
   border-radius: 5rem;
-  padding: 0.7rem;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   cursor: pointer;

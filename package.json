@@ -1,6 +1,6 @@
 {
-  "name": "figma-design-1",
-  "version": "0.1.0",
+  "name": "state-channel-client-v1.0.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@iconify/icons-mdi-light": "^1.0.3",
