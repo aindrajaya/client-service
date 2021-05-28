@@ -18,25 +18,32 @@ const ContainerDash = styled.div`
     padding: 0 4rem;
 `
 
-
 const SimpleTransaction = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
     }
+
+   
     return (
-        <ContainerDash>
-            <button onClick={toggleModal}>
-                <NewDepositBtn  />
-            </button>
-            <Modal style={{"width":"50vw"}}
+        <ContainerDash> 
+             <Modal 
                 isOpen={isOpen}
                 onRequestClose={toggleModal}
                 contentLabel="Dialog"
+                style={{
+                    content:{
+                        width:'30%',
+                        margin: 'auto',
+                    }
+                }}
             >
-                {/* <TransferModal /> */}
+                <TransferModal />
             </Modal>
+            <button onClick={toggleModal}>
+                <NewDepositBtn/>
+            </button>
             <Deposits title="Transactions" count={2} data={depositData.active} />
             <Deposits title="History" count={8} data={depositData.closed} />
         </ContainerDash>

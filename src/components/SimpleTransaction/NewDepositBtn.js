@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import styled from 'styled-components'
 
 const AddButton = styled.a`
@@ -17,7 +17,7 @@ const AddButton = styled.a`
     transition: all ease-in-out 300ms;
 
     &:hover {
-        /* box-shadow: 10px 10px 8px -8px rgba(117, 194, 130, 0.6); */
+        box-shadow: 10px 10px 8px -8px rgba(117, 194, 130, 0.6);
     }
 
 `

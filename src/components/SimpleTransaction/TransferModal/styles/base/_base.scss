@@ -44,12 +44,15 @@ body {
 }
 
 .address{
-  text-align: center;
+  // text-align: center;
+  margin: auto;
+  width: 95%;
+  padding: 3px;
 }
 
 .balance {
   text-align: center;
-  margin: 40% 0 40% 0;
+  margin: 10% 0 10% 0;
 }
 
 .balance__number {
@@ -72,14 +75,15 @@ h2 {
 .TransferPage__FirstScreen__ButtonsBlock__Buttons {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   .button {
     margin: $m-size $l-size 0 $l-size;
   }
+  padding: 20px 0;
 }
 
 .TransferPage__SecondScreen {
-  padding-top: 0.1em;
+  padding: 0;
   height: 100vh;
 }
 
@@ -88,7 +92,7 @@ h2 {
   .balance {
     display: inline;
     float: right;
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
@@ -110,6 +114,6 @@ h2 {
   }
 
   .TransferPage__SecondScreen {
-    padding-top: 6rem;
+    padding-top: 2rem;
   }
 }

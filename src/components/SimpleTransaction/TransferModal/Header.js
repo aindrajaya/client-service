@@ -1,17 +1,16 @@
 import React, { Fragment } from "react";
-//tab
-import DisabledTabs from "./Tabs";
+
+function truncate(str, num) {
+  if(str.length <= num){
+    return str;  
+  }
+  return str.slice(0, num) + '...'
+}
 
 const Header = props => (
   <Fragment>
-    
-      {/* <div className="mainTitle">
-        <DisabledTabs />  
-        <br/>
-        Simple Transaction
-      </div> */}
       <h2 className="description">Send coin to another address.</h2>
-      <div className="address">Hello, {props.coinbase}</div> 
+      <div className="address">Hello, {truncate(props.coinbase, 20)}</div> 
       <h1 className="balance">
         Balance : <span className="balance__number">Ξ {props.balance} </span>
       </h1>
@@ -19,3 +18,4 @@ const Header = props => (
 );
 
 export default Header;
+
