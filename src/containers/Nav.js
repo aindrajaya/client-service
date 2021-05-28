@@ -8,7 +8,8 @@ const Container = styled.div`
     justify-content: flex-end;
     align-items: center;
     margin-bottom: 3rem;
-    background-image: ${({ theme }) => theme.gradient};
+    /* background-image: ${({ theme }) => theme.blueCool}; */
+    background-color: #1b58b3;
     border-radius: 1rem;
 `
 
