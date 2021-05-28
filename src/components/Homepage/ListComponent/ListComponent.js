@@ -23,7 +23,7 @@ const Top = styled.div`
   font-weight: 900;
   text-align: center;
   /* background-image: ${({ theme }) => theme.gradient}; */
-  color: ${({ theme }) => theme.gradient};
+  color: #674bd9;
   border-radius: 5rem;
   padding: 0.7rem;
   display: flex;
