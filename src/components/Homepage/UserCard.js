@@ -65,25 +65,29 @@ class UserCards extends Component {
           {this.state.data.map(data => (
             <div className="col-md-4 animated fadeIn" key={data.id.value}>
               <div className="card">
-                <div className="card-body">
-                  <div className="avatar">
+                {/* <div className="card-body"> */}
+                  <div className="avatar col col-1">
                     <img
                       src={Image}
                       className="card-img-top"
                       alt=""
                     />
                   </div>
-                  <h5 className="card-title">
-                    {this.uppercase(data.name.first) +
-                      " " +
-                      this.uppercase(data.name.last)}
-                  </h5>
-                  <p className="card-text">
-                    {coinbase}
-                    <br />
-                    <span className="phone">{bal} Eth</span>
-                  </p>
-                </div>
+                  <div className="col col-2">
+                    <div id="unopacity">
+                      <h5 className="card-title">
+                        {this.uppercase(data.name.first) +
+                          " " +
+                          this.uppercase(data.name.last)}
+                      </h5>
+                      <p className="card-text">
+                        {coinbase}
+                        <br />
+                        <span className="phone">{bal} Eth</span>
+                      </p>
+                    </div>
+                  </div> 
+                {/* </div> */}
               </div>
             </div>
           ))}

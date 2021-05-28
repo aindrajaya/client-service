@@ -39,9 +39,9 @@ const Status = styled(Text)`
 const SortingBar = () => {
     return (
         <Container>
-            <Property>Property</Property>
-            <MoveInDate>Move In Date</MoveInDate>
-            <Rent>Rent</Rent>
+            <Property>Transaction</Property>
+            <MoveInDate>Date</MoveInDate>
+            <Rent>Request</Rent>
             <Deposit>Deposit</Deposit>
             <Status>Status</Status>
         </Container>

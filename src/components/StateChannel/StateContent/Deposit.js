@@ -85,9 +85,9 @@ const Deposit = ({ data }) => {
                 </PropertyText>
             </Property>
             <MoveInDate>{moveInDate}</MoveInDate>
-            <Rent>${rent}</Rent>
+            <Rent>Ξ {rent}</Rent>
             <DepositWrapper>
-                <Text>${deposit.amount}</Text>
+                <Text>Ξ {deposit.amount}</Text>
                 <Subtitle>{deposit.type}</Subtitle>
             </DepositWrapper>
             <Status>

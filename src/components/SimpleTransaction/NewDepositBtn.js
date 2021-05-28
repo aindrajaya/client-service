@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const AddButton = styled.a`
-    background-color: ${({ theme }) => theme.colorGreen};
+    /* background-color: ${({ theme }) => theme.colorGreen}; */
+    background-color: ${({ theme }) => theme.blueCool};;
     display: flex;
     justify-content: center;
     align-items: center;

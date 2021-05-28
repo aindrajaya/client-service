@@ -13,7 +13,8 @@ const Button = styled.a`
     width: 9rem;
     font-size: 0.6rem;
     font-weight: 700;
-    background-image: ${({ theme }) => theme.gradient};
+    /* background-image: ${({ theme }) => theme.gradient}; */
+    background-color: ${({ theme }) => theme.blueCool};;
     color: #FFF;
     border-radius: 5rem;
     padding: 0.7rem;
