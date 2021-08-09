@@ -9,7 +9,7 @@ function truncate(str, num) {
 
 const Header = props => (
   <Fragment>
-      <h2 className="description">Send coin to another address.</h2>
+      <h2 className="description">Send ETH to another address.</h2>
       <div className="address">Hello, {truncate(props.coinbase, 20)}</div> 
       <h1 className="balance">
         Balance : <span className="balance__number">Ξ {props.balance} </span>

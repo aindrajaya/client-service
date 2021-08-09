@@ -17,7 +17,7 @@ class UserCards extends Component {
 
   loadProfile = () => {
     axios
-    .get("http://35.246.148.192:8085/mediatorApi/init")
+    .get("http://localhost:8085/mediatorApi/init")
     .then(response => {
       const wei = response.data.balanceEthCoinbaseAddress
       const ether0 = wei / 1000000000000000000

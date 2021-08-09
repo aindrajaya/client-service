@@ -14,7 +14,8 @@ const ConfirmationModal = props => {
   const { transactionToBeConfirmed, closeModal, confirmTransaction } = props;
   
   ConfirmationModal.propTypes = {
-    confirmTransaction: axios.post("http://localhost:8085/mediatorApi/simpleTransaction", {
+      confirmTransaction: axios.post("http://localhost:8085/mediatorApi/simpleTransaction", {
+      // confirmTransaction: axios.post("http://35.246.148.192:8085/mediatorApi/simpleTransaction", {
       addressTo: selectedName,
       valueTrx: amount/2 * 1000000000000000000
       // body: JSON.stringify({

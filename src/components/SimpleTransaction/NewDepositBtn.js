@@ -26,9 +26,11 @@ const AddIcon = styled.span`
     font-size: 36px;
 `
 
-const NewDepositBtn = () => (
-    <AddButton>
-        <AddIcon className="iconify" data-inline="false" data-icon="mdi-light:plus" ></AddIcon>
+const NewDepositBtn = (props) => (
+    <AddButton >
+        <AddIcon className="iconify" data-inline="false" data-icon="mdi-light:plus" >
+            <button onClick={props.click}></button>
+        </AddIcon>
     </AddButton>
 )
 

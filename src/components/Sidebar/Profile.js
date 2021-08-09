@@ -26,7 +26,8 @@ class Profile extends React.Component {
     componentDidMount() {
         // this.setState(() => pastTransactions, coinInit);
         axios
-          .get("http://35.246.148.192:8085/mediatorApi/init")
+          // .get("http://35.246.148.192:8085/mediatorApi/init")
+          .get("http://localhost:8085/mediatorApi/init")
           .then(response => {
             const wei = response.data.balanceEthCoinbaseAddress
             const ether0 = wei / 1000000000000000000
@@ -37,7 +38,7 @@ class Profile extends React.Component {
               coinbase : addr0,
               balance : ether0,
             })
-            console.log(this.state)
+            // console.log(this.state)
           })
           .catch(error => {
             console.log(error)

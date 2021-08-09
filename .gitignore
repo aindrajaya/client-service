@@ -24,3 +24,5 @@ yarn-error.log*
 
 Dockerfile.prod
 nginx.conf
+
+package-lock.json

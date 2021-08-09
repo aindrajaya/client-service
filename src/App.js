@@ -5,6 +5,9 @@ import { lightTheme, darkTheme } from './styles/theme'
 import { GlobalStyles } from './styles/global'
 import { ThemeContext } from './context/themeContext'
 
+import {Provider} from 'react-redux';
+
+import store from './store';
 
 const App = () => {
 
@@ -12,12 +15,14 @@ const App = () => {
   const { theme } = context;
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <>
-        <GlobalStyles />
-        <Dashboard />
-      </>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <>
+          <GlobalStyles />
+          <Dashboard />
+        </>
+      </ThemeProvider>
+    </Provider>
   )
 }
 

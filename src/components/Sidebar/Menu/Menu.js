@@ -12,14 +12,18 @@ const Menu = () => {
     return (
         <ContainerMenu>
             <Link to="/">
-                <MenuLink title="Home" icon={'home'} l/>
+                <MenuLink title="Home" icon={'home'}/>
             </Link>
-            <Link to="/simple">
-                <MenuLink title="Simple Transactions" icon={'file-multiple'}/>
+            <Link to="/statechannels">
+                <MenuLink title="State Channels" icon={'file-multiple'}/>
             </Link>
-            <Link to="/channels">
-                <MenuLink title="State Channels" icon={'gift'}/>
+            <Link to="/onchain" >
+                <MenuLink title="on-Chain Transactions" icon={'file-multiple'}/>
             </Link>
+            <Link to="/systemconfig">
+                <MenuLink title="System Configurations" icon={'cog'}/>
+            </Link>
+            
             {/* <MenuLink title="Channels configuration" icon={'cog'}/> */}
         </ContainerMenu>
     )

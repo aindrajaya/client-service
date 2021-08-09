@@ -33,26 +33,27 @@ class TransferModal extends React.Component {
   firstPage = React.createRef();
   secondPage = React.createRef();
 
-  componentDidMount() {
-    // this.setState(() => pastTransactions, coinInit);
-    axios
-      .get("http://35.246.148.192:8085/mediatorApi/init")
-      .then(response => {
-        const wei = response.data.balanceEthCoinbaseAddress
-        const ether0 = wei / 1000000000000000000
-        const addr0 = response.data.ethCoinbaseAddress
-        console.log(ether0, addr0)
-        this.setState({
-          // pastTransactions,
-          coinbase : addr0,
-          balance : ether0,
-        })
-        console.log(this.state)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  // componentDidMount() {
+  //   // this.setState(() => pastTransactions, coinInit);
+  //   axios
+  //     // .get("http://35.246.148.192:8085/mediatorApi/init")
+  //     .get("http://localhost:8085/mediatorApi/init")
+  //     .then(response => {
+  //       const wei = response.data.balanceEthCoinbaseAddress
+  //       const ether0 = wei / 1000000000000000000
+  //       const addr0 = response.data.ethCoinbaseAddress
+  //       console.log(ether0, addr0)
+  //       this.setState({
+  //         // pastTransactions,
+  //         coinbase : addr0,
+  //         balance : ether0,
+  //       })
+  //       console.log(this.state)
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+  // }
 
   confirmTransaction = () => {
     console.log("transaction confirmed");

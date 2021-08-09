@@ -9,7 +9,7 @@ const Container = styled.div`
     align-items: center;
     margin-bottom: 3rem;
     /* background-image: ${({ theme }) => theme.blueCool}; */
-    background-color: #1b58b3;
+    background-color: #1565c0;
     border-radius: 1rem;
 `
 

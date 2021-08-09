@@ -11,7 +11,7 @@ const ContainerList = styled.div`
     column-count: 2;
     column-gap: 5%;
 `
-const Top = styled.div`
+export const Top = styled.div`
   border-radius: 8px;
   height: 10vh;
   margin-bottom: 4px;
@@ -45,7 +45,7 @@ function truncatedong(str, num) {
 export default function ListComponent() {
   const [friendList, setFriendList] = useState([])
   const [friendListBalance, setFriendListBalance] = useState([])
-  const url = "http://35.246.148.192:8085/mediatorApi/init"
+  const url = "http://localhost:8085/mediatorApi/init"
 
   useEffect(() => {
     loadFriend()

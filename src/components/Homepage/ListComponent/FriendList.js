@@ -1,7 +1,6 @@
 import React from 'react'
 import './List.css'
 
-
 export default function FriendList(friend, selectedFriend, onClickListFriend) {
   const {image, phone, email, address, name, id } = friend;
   const selected = selectedFriend === friend.id;
