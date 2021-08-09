@@ -1,4 +1,4 @@
-import { LOAD_ON_CHAIN_TRANSACTIONS } from "../types";
+import { LOAD_TRANSACTION_ON_CHAIN } from "../types";
 
 const offLists = []
 
@@ -6,7 +6,7 @@ const onChainLists = (state=offLists, action) => {
   const {type, payload} = action
 
   switch (type) {
-    case LOAD_ON_CHAIN_TRANSACTIONS:
+    case LOAD_TRANSACTION_ON_CHAIN:
       return payload
     default:
       return state

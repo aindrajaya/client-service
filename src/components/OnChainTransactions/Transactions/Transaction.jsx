@@ -72,44 +72,55 @@ const StatusIndicator = styled.div`
     right: 7rem;
 `
 
-const Deposit = ({ data, theKey }) => {
-    // const { property, moveInDate, rent, deposit, status } = data;
-    const { addressTo, moveInDate, amountTransfer, state, status } = data;
-    const {key} = theKey
+const OnChainTransaction = ({ data }) => {
+    const { property, moveInDate, rent, deposit, status } = data;
+    // const property = "string5" 
+    // const moveInDate = "string4" 
+    // const rent ="string3" 
+    // const deposit = "string2"
+    // const status = "string"
     const today = new Date();
 
     return (
         <Container>
             <Property>
-                <PropertyImg />
-                {/* <PropertyImg src={require(`../../../assets/images/${property.imageUrl}`)} /> */}
+                {/* <PropertyImg /> */}
+                <PropertyImg src={require(`../../../assets/images/${property.imageUrl}`)} />
+                
                 <PropertyText>
-                    <PropertyStreet>{key.slice(0, 18)+'...'}</PropertyStreet>
-                    <Subtitle>TO  {addressTo.slice(0, 35)+'...'}</Subtitle>
+                    {/* <PropertyStreet>{property}</PropertyStreet>
+                    <Subtitle>{property} {property}</Subtitle> */}
+
+                    <PropertyStreet>{property.address.street}</PropertyStreet>
+                    <Subtitle>{property.address.city} {property.address.state}</Subtitle>
                 </PropertyText>
             </Property>
             <MoveInDate>
-                {"Tanggal Sekian"}
+                {moveInDate}
             </MoveInDate>
-            <Rent>Ξ {amountTransfer}</Rent>
+            <Rent>Ξ {rent}</Rent>
             <DepositWrapper>
-                <Text>Ξ {amountTransfer}</Text>
-                <Subtitle>{state}</Subtitle>
+                {/* <Text>Ξ {deposit}</Text>
+                <Subtitle>{deposit}</Subtitle> */}
+
+                <Text>Ξ {deposit.amount}</Text>
+                <Subtitle>{deposit.type}</Subtitle>
             </DepositWrapper>
             <Status>
-                <Text>{status}</Text>
-                {/* {(() => {
+                {/* <Text>{status}</Text> */}
+                <Text>{status.message}</Text>
+                {(() => {
                     switch (status.level) {
                         case 1: return <StatusIndicator color="#F17E7E" />;
                         case 2: return <StatusIndicator color="#FFD056" />;
                         case 3: return <StatusIndicator color="#75C282" />;
                         default: return <StatusIndicator color="#AAA5A5" />;
                     }
-                })()} */}
+                })()}
             </Status>
 
         </Container>
     )
 }
 
-export default Deposit
+export default OnChainTransaction

@@ -1,23 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import NewDepositBtn from './NewDepositBtn'
-import Deposits from './StateContent/Deposits'
 
-import depositData from '../../OffChainData.json'
+import BtnTransact from './TransactionButton';
+import ListsTransactions from './Transactions'
+
+import dataMock from '../../OffChainData.json'
 
 import Modal from "react-modal";
 
+//style
 import "normalize.css/normalize.css";
-import "./ModalStateChannel/styles/styles.scss"
+import './styles/styles.scss'
 
 import {jssPreset, StylesProvider, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../themes';
-import {useSelector, useDispatch} from 'react-redux';
-import DepositModal from '../ui-component/cards/DepositChannel/DepositModal'
-import OffChainModal from '../ui-component/cards/OffChainTransactions/OffChainModal'
+import {useSelector} from 'react-redux';
+
 import ModalAppOffChain from '../ui-component/cards/OffChainTransactions/StepModal'
-import { loadOffChainTransactions } from '../../redux/actions/channel'
+
 
 const ContainerDash = styled.div`
     width: auto;
@@ -33,7 +34,9 @@ const loadLocaleData = (locale) => {
     }
 };
 
-const TransactionChannel = () => {
+console.log(dataMock)
+
+const OnChainTransactionMain = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleModal = () => {
@@ -42,12 +45,6 @@ const TransactionChannel = () => {
 
     const customization = useSelector((state) => state.customization);
     const [messages, setMessages] = useState();
-
-    //redux load data off chain transactions
-    const dispatch = useDispatch()
-    const offChainLists = useSelector(state => state.offChainLists)
-
-    console.log(offChainLists)
 
     useEffect(() => {
         loadLocaleData(customization.locale).then((d) => {
@@ -59,9 +56,6 @@ const TransactionChannel = () => {
         document.querySelector('body').setAttribute('dir', 'rtl');
     }
 
-    useEffect(() => {
-        loadOffChainTransactions(dispatch)
-    }, [])
    
     return (
         <ContainerDash> 
@@ -83,15 +77,15 @@ const TransactionChannel = () => {
                     <ModalAppOffChain />
                 </Modal>
                 <button onClick={toggleModal}>
-                    <NewDepositBtn/>
+                    <BtnTransact />
                 </button>
                 
-                <Deposits title="Off-Chain Transaction" data={offChainLists}/>
-            
+                <ListsTransactions title="On-Chain Trx" count={2} data={dataMock.active} />
+              
                 </CssBaseline>
             </ThemeProvider>
         </ContainerDash>
     )
 }
 
-export default TransactionChannel
+export default OnChainTransactionMain

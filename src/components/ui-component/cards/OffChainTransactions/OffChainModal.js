@@ -43,6 +43,9 @@ const OffChainModal = ({formData, navigation}) => {
 
   const { previous, next } = navigation;
 
+  const a = lastKey.toString()
+  console.log(a)
+  
   return (
     <Fragment>
   
@@ -63,7 +66,8 @@ const OffChainModal = ({formData, navigation}) => {
           />
         )}
         rules={{ required: 'Sender Address Private Key required' }}
-      /><Controller
+      />
+      <Controller
       name="addressTo"
       control={control}
       defaultValue=""
@@ -78,7 +82,7 @@ const OffChainModal = ({formData, navigation}) => {
         />
       )}
       rules={{ required: 'Receiver Address required' }}
-    />
+      />
       <Controller
         name="amountTransfer"
         control={control}
@@ -114,7 +118,7 @@ const OffChainModal = ({formData, navigation}) => {
       <Controller
         name="lastKey"
         control={control}
-        defaultValue={lastKey}
+        defaultValue={a}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <TextField
             label="Last Key"

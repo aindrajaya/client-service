@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SystemConfigBoard from '../components/StateChannel/SystemConfigBoard';
 import TransactionChannel from '../components/StateChannel/TransactionChannel';
 import UnderDevelopment from '../components/StateChannel/UnderDevelopment';
+import OnChainTransactionMain from '../components/OnChainTransactions';
 
 const routes = [
     {
@@ -24,7 +25,8 @@ const routes = [
     {
       path: "/onchain",
       // main: () => <SimpleTransaction/>
-      main: () => <UnderDevelopment />
+      main: () => <OnChainTransactionMain />
+      // main: () => <UnderDevelopment />
     },
     {
       path: "/systemconfig",

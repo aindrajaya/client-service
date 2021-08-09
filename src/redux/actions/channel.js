@@ -85,10 +85,10 @@ export const makeOffChainTransactions = async (dispatch, addTransactions) => {
   try{
     const res = await api.post("transferDataStoreOffChain",addTransactions)
     const dataChain = res.data
-    const key = dataChain.key
+    const lastKey = dataChain.key
     await apiJson.post("transactionsOffChainList", {dataChain})
-    await apiJson.post("channelLists",{key})
-    console.log(key)
+    await apiJson.post("lastKeys",{lastKey})
+    console.log(lastKey)
     dispatch({ 
       type: MAKE_TRANSACTION_OFF_CHAIN,
       payload: dataChain

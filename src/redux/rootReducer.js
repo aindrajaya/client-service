@@ -7,6 +7,8 @@ import depositReducer from './reducers/depositChannel';
 import lastKeyReducer from './reducers/GetLastKey';
 import offChainReducer from './reducers/OffChain';
 import onChainReducer from './reducers/OnChain';
+import offChainLists from './reducers/OffChainLists';
+import onChainLists from './reducers/OnChainLists';
 
 const reducer = combineReducers({
     customization: customizationReducer,
@@ -16,7 +18,9 @@ const reducer = combineReducers({
     deposit: depositReducer,
     lastKey: lastKeyReducer,
     offChain: offChainReducer,
-    onChain: onChainReducer
+    onChain: onChainReducer,
+    offChainLists: offChainLists,
+    onChainLists: onChainLists
 });
 
 export default reducer;

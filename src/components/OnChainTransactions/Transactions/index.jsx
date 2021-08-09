@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import SortingBar from './SortingBar'
-import Deposit from './Deposit'
-import AllDepositsBtn from '../AllDepositsBtn'
+import OnChainTransaction from './Transaction'
+import BtnTransact from '../TransactionButton'
 
 const Container = styled.div`
 
@@ -29,19 +29,21 @@ const DepositsCount = styled.div`
     border-radius: 20px;
 `
 
-const Deposits = ({ title, data, count }) => {
-    console.log(data)
+
+
+const ListsTransactions = ({ title, data, count }) => {
+  console.log(data)
+
     return (
         <Container>
-            {/* <Title>{title}<DepositsCount>{count}</DepositsCount></Title> */}
-            <Title>{title}</Title>
+            <Title>{title}<DepositsCount>{count}</DepositsCount></Title>
             <SortingBar />
-            {data.map(trx => (
-                <Deposit data={trx.dataChain.dataTrx} theKey={trx.dataChain} />
+            {data.map(deposit => (
+                <OnChainTransaction data={deposit} key={deposit.property.address.street} />
             ))}
-            {/* <AllDepositsBtn title={title} /> */}
+            <BtnTransact title={title} />
         </Container>
     )
 }
 
-export default Deposits
+export default ListsTransactions
