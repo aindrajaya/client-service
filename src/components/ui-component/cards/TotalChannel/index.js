@@ -3,7 +3,8 @@ import {Avatar, Button, Card, CardContent, Grid, makeStyles, MenuItem, Typograph
 
 import ListIcon from '@material-ui/icons/List';
 import AddIcon from '@material-ui/icons/Add';
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import PageviewIcon from '@material-ui/icons/Pageview';
+import SearchIcon from '@material-ui/icons/Search';
 
 import Modal from "react-modal";
 import ChannelModal from './channelModal'
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.dark,
         color: '#fff',
         marginTop: '14px',
-        marginLeft: '20px'
+        marginLeft: '20px',
     },
 }));
 
@@ -147,8 +148,9 @@ const TotalChannel = () => {
                     }
                 }}
                 appElement={document.getElementById('app')}
-            >
-                <ChannelModal />
+            >   
+                {/* This modal is show when + button is clicked */}
+                <ChannelModal show={isOpen} close={toggleModal}/>
             </Modal>
 
             {/* List Channel Modal */}
@@ -176,6 +178,7 @@ const TotalChannel = () => {
                             <Grid container justifyContent="space-between">
                                 <Typography className={classes.subHeading}>Channel Lists</Typography>
                             </Grid>
+                            {/* OnClick will show the Modal */}
                             <Avatar className={classes.avatarCricle} onClick={toggleModal}>
                                 <AddIcon fontSize="inherit" />    
                             </Avatar>
@@ -213,7 +216,7 @@ const TotalChannel = () => {
                                             // className={classes.webIcon}
                                             //render={() => (window.location = `https://rinkeby.etherscan.io/tx/${item?.dataTrx?.trxHashNewChannel}`)}
                                         >
-                                            <DoubleArrowIcon className={classes.webIcon} alt="Go to Rinkeby "/>
+                                            <SearchIcon className={classes.webIcon} alt="Go to Rinkeby "/>
                                             {/* {item.statusCode} */}
                                         </Link>
                                     </Grid>

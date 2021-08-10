@@ -28,13 +28,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const ChannelModal = () => {
+const ChannelModal = ({show, close}) => {
   const classes = useStyles();
   const { handleSubmit, control } = useForm();
-  const [channelKey, setChannelKey] = useState('')
-  const [dataTrx, setDataTrx] = useState({})
-  const [statusMessage, setStatusMessage] = useState('')
-
   
   //redux
   const dispatch = useDispatch()
@@ -44,25 +40,33 @@ const ChannelModal = () => {
   console.log(dataChain)
   console.log(listsChain)
 
-  const onSubmit = (data) => {
+  //loadNotification
+
+
+  const onSubmit = async (data) => {
     openChannel(dispatch, data)
-    // await saveChannel(dispatch, dataChain)
+    // if(dataChain.statusCode === "01"){
+    //   close()
+    // }
   }
 
   useEffect((data) => {
     loadChannel(dispatch)
-    onSubmit(data)
   }, [])
     
-
-    return (
+  return (
     <Fragment>  
-      <h2
-        style={{
-          backgroundColor: "#ffc107"
-        }}
-      >{statusMessage}</h2>
+      {show ? 
       <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
+        <h2
+          style={{
+            backgroundColor: "#90caf9",
+            fontSize: "1em"
+          }}
+          >
+            Channel Key 
+            {dataChain.key}
+          </h2>
           <Controller
             name="addressFromPk"
             control={control}
@@ -128,54 +132,25 @@ const ChannelModal = () => {
             )}
             rules={{ required: 'Minimum deposit is required' }}
           />
-          
-          
+          {/* Button */}
           <div>
-        
-            <Button type="submit" variant="contained" color="primary">
+            <Button 
+              type="submit" 
+              variant="contained" 
+              color="primary" 
+              onClick={async () => {
+                setInterval(function(){
+                  close()
+                  alert("Transactions Done");
+                  window.location.reload()
+                },3000);
+              }}
+              >
               Open Channel
             </Button>
-          </div>
-            <div
-              style={{
-                backgroundColor: "aliceblue",
-                width: "90%",
-                borderRadius: "10px",
-                padding: "5%"
-              }}  
-            >
-            <div>
-              <h3>This is your channel Key, please save for the next transaction</h3>
-              <div
-                style={{
-                  backgroundColor: "#fff8e1",
-                  width: "100%",
-                  borderRadius: "5px",
-                  padding: "5%",
-                  marginBottom: "5%",
-                  marginTop:"5%",
-                  wordBreak: "break-all"
-                }}
-                >
-                  <p>{channelKey}</p>
-              </div>
-              
-              {/* <h3>You can see on Ropsten networks too</h3> */}
-              <h3>You can see on Rinkeby networks too</h3>
-              {/* <Button target="_blank" href={`https://ropsten.etherscan.io/address/${dataTrx.tokenAddress}`}> */}
-              <Button target="_blank" href={`https://rinkeby.etherscan.io/address/${dataTrx.tokenAddress}`}>
-                Token
-              </Button>
-              <Button target="_blank" href={`https://rinkeby.etherscan.io/tx/${dataTrx.trxHashNewChannel}`}>
-                Trx Address
-              </Button>               
-            </div>
-          </div>
-         
-          
+        </div>
       </form>
-      
-   
+      : null}
     </Fragment>
    );
 };
