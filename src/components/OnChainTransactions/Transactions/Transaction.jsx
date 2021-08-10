@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const Container = styled.div`
     display: flex;
@@ -73,7 +74,8 @@ const StatusIndicator = styled.div`
 `
 
 const OnChainTransaction = ({ data }) => {
-    const { property, moveInDate, rent, deposit, status } = data;
+    // const { property, moveInDate, rent, deposit, status } = data;
+    const { addressTo, addressFrom, amountTransfer, state, status, trxHashTransfer } = data;
     // const property = "string5" 
     // const moveInDate = "string4" 
     // const rent ="string3" 
@@ -84,39 +86,38 @@ const OnChainTransaction = ({ data }) => {
     return (
         <Container>
             <Property>
-                {/* <PropertyImg /> */}
-                <PropertyImg src={require(`../../../assets/images/${property.imageUrl}`)} />
-                
+                <PropertyImg src={require(`../../../assets/images/transact4.png`)} />
                 <PropertyText>
-                    {/* <PropertyStreet>{property}</PropertyStreet>
-                    <Subtitle>{property} {property}</Subtitle> */}
-
-                    <PropertyStreet>{property.address.street}</PropertyStreet>
-                    <Subtitle>{property.address.city} {property.address.state}</Subtitle>
+                    <PropertyStreet>
+                        <Link
+                        style={{textDecoration: 'none'}}
+                        target="_blank" 
+                        to={{pathname: `https://rinkeby.etherscan.io/tx/${trxHashTransfer}`}}
+                        >
+                             {trxHashTransfer.slice(0, 20)+'...'}
+                        </Link>
+                    </PropertyStreet>
+                    <Subtitle>TO  {addressTo.slice(0, 35)+'...'}</Subtitle>
                 </PropertyText>
-            </Property>
+            </Property> 
             <MoveInDate>
-                {moveInDate}
+                {"August 2021"}
             </MoveInDate>
-            <Rent>Ξ {rent}</Rent>
+            <Rent>Ξ {amountTransfer}</Rent>
             <DepositWrapper>
-                {/* <Text>Ξ {deposit}</Text>
-                <Subtitle>{deposit}</Subtitle> */}
-
-                <Text>Ξ {deposit.amount}</Text>
-                <Subtitle>{deposit.type}</Subtitle>
+                <Text>FROM {addressFrom.slice(0, 10)+'...'}</Text>
+                <Subtitle>{state}</Subtitle>
             </DepositWrapper>
             <Status>
-                {/* <Text>{status}</Text> */}
-                <Text>{status.message}</Text>
-                {(() => {
+                <Text>{status}</Text>
+                {/* {(() => {
                     switch (status.level) {
                         case 1: return <StatusIndicator color="#F17E7E" />;
                         case 2: return <StatusIndicator color="#FFD056" />;
                         case 3: return <StatusIndicator color="#75C282" />;
                         default: return <StatusIndicator color="#AAA5A5" />;
                     }
-                })()}
+                })()} */}
             </Status>
 
         </Container>

@@ -31,17 +31,15 @@ const DepositsCount = styled.div`
 
 
 
-const ListsTransactions = ({ title, data, count }) => {
-  console.log(data)
-
+const ListsTransactions = ({ title, data }) => {
     return (
         <Container>
-            <Title>{title}<DepositsCount>{count}</DepositsCount></Title>
+            <Title>{title}</Title>
             <SortingBar />
-            {data.map(deposit => (
-                <OnChainTransaction data={deposit} key={deposit.property.address.street} />
+            {data.map(trx => (
+                <OnChainTransaction data={trx.dataChain.dataTrx} theKey={trx.dataChain} />
             ))}
-            <BtnTransact title={title} />
+            {/* <BtnTransact title={title} /> */}
         </Container>
     )
 }

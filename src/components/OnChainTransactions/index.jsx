@@ -6,18 +6,23 @@ import ListsTransactions from './Transactions'
 
 import dataMock from '../../OffChainData.json'
 
-import Modal from "react-modal";
-
-//style
+//call the style
 import "normalize.css/normalize.css";
 import './styles/styles.scss'
 
+//styling
 import {jssPreset, StylesProvider, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../themes';
-import {useSelector} from 'react-redux';
 
-import ModalAppOffChain from '../ui-component/cards/OffChainTransactions/StepModal'
+//modal component
+import Modal from "react-modal";
+import ModalAppOnChain from '../ui-component/cards/OnChainTransactions/StepModal';
+
+//data handler wirh redux
+import {useSelector, useDispatch} from 'react-redux';
+import { loadOnChainTransactions } from '../../redux/actions/channel';
+
 
 
 const ContainerDash = styled.div`
@@ -46,6 +51,12 @@ const OnChainTransactionMain = () => {
     const customization = useSelector((state) => state.customization);
     const [messages, setMessages] = useState();
 
+    //redux load data off chain transactions
+    const dispatch = useDispatch()
+    const onChainLists = useSelector(state => state.onChainLists)
+
+    console.log(onChainLists)
+
     useEffect(() => {
         loadLocaleData(customization.locale).then((d) => {
             setMessages(d.default);
@@ -55,6 +66,10 @@ const OnChainTransactionMain = () => {
     if (customization.rtlLayout) {
         document.querySelector('body').setAttribute('dir', 'rtl');
     }
+
+    useEffect(() => {
+        loadOnChainTransactions(dispatch)
+    }, [])
 
    
     return (
@@ -74,14 +89,16 @@ const OnChainTransactionMain = () => {
                         }
                     }}
                 >
-                    <ModalAppOffChain />
+                    {/* <ModalAppOffChain show={isOpen}/> */}
+                    <ModalAppOnChain show={isOpen} close={toggleModal}/>
+                    {/* <OnChainTransactions show={isOpen}/> */}
                 </Modal>
                 <button onClick={toggleModal}>
-                    <BtnTransact />
+                    <BtnTransact/>
                 </button>
-                
-                <ListsTransactions title="On-Chain Trx" count={2} data={dataMock.active} />
-              
+                {/* <ListsTransactions title="Off-Chain Transaction" data={dataMock}/> */}
+                <ListsTransactions title="On-Chain Transaction" data={onChainLists}/>
+            
                 </CssBaseline>
             </ThemeProvider>
         </ContainerDash>

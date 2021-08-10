@@ -40,9 +40,9 @@ const SortingBar = () => {
     return (
         <Container>
             <Property>Transaction</Property>
-            <MoveInDate>Date</MoveInDate>
-            <Rent>Request</Rent>
-            <Deposit>Deposit</Deposit>
+            <MoveInDate>Date</MoveInDate>   
+            <Rent>Amount</Rent>
+            <Deposit>Info</Deposit>
             <Status>Status</Status>
         </Container>
     )
