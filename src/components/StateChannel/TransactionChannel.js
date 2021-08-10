@@ -80,12 +80,11 @@ const TransactionChannel = () => {
                         }
                     }}
                 >
-                    <ModalAppOffChain />
+                    <ModalAppOffChain show={isOpen} close={toggleModal}/>
                 </Modal>
                 <button onClick={toggleModal}>
                     <NewDepositBtn/>
                 </button>
-                
                 <Deposits title="Off-Chain Transaction" data={offChainLists}/>
             
                 </CssBaseline>

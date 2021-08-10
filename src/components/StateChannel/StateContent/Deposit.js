@@ -74,26 +74,25 @@ const StatusIndicator = styled.div`
 
 const Deposit = ({ data, theKey }) => {
     // const { property, moveInDate, rent, deposit, status } = data;
-    const { addressTo, moveInDate, amountTransfer, state, status } = data;
+    const { addressTo, addressFrom, amountTransfer, state, status } = data;
     const {key} = theKey
     const today = new Date();
 
     return (
         <Container>
             <Property>
-                <PropertyImg />
-                {/* <PropertyImg src={require(`../../../assets/images/${property.imageUrl}`)} /> */}
+                <PropertyImg src={require(`../../../assets/images/transact2.png`)} />
                 <PropertyText>
                     <PropertyStreet>{key.slice(0, 18)+'...'}</PropertyStreet>
                     <Subtitle>TO  {addressTo.slice(0, 35)+'...'}</Subtitle>
                 </PropertyText>
-            </Property>
+            </Property> 
             <MoveInDate>
-                {"Tanggal Sekian"}
+                {"August 2021"}
             </MoveInDate>
             <Rent>Ξ {amountTransfer}</Rent>
             <DepositWrapper>
-                <Text>Ξ {amountTransfer}</Text>
+                <Text>FROM {addressFrom.slice(0, 10)+'...'}</Text>
                 <Subtitle>{state}</Subtitle>
             </DepositWrapper>
             <Status>

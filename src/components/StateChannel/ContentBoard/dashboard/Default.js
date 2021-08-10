@@ -51,13 +51,11 @@ const Dashboard = () => {
                 <Grid item sm={6} xs={12} md={6} lg={12}>
                     <DepositChannel />
                 </Grid>
-                <Grid item sm={6} xs={12} md={6} lg={12}>
+                {/* <Grid item sm={6} xs={12} md={6} lg={12}>
                     <Deposits title="Transactions" count={2} data={depositData.active}/>
-                </Grid>
+                </Grid> */}
                 {/* <Deposits title="Transactions" count={2} data={depositData.active} /> */}
-                
-            </Grid>
-            
+            </Grid> 
         </Fragment>
     );
 };
