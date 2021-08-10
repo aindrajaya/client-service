@@ -116,4 +116,31 @@ export const loadOffChainTransactions = async(dispatch) => {
 
 //ON-CHAIN Transactions
 //make
+export const makeOnChainTransactions = async (dispatch, addTransactions) => {
+  try{
+    const res = await api.post("transferOffChain",addTransactions)
+    const dataChain = res.data
+    await apiJson.post("transactionsOnChainList", {dataChain})
+    dispatch({ 
+      type: MAKE_TRANSACTION_ON_CHAIN,
+      payload: dataChain
+    })
+  }catch(error){
+    console.log(error);
+  }
+}
+
 //load
+export const loadOnChainTransactions = async(dispatch) => {
+  try{
+    const res = await apiJson.get("transactionsOnChainList")
+    const dataAPI = res.data
+    console.log(dataAPI)
+    dispatch({ //masukin data ke state/ui 
+      type: LOAD_TRANSACTION_ON_CHAIN, 
+      payload: dataAPI
+    })
+  }catch(error){
+    console.log(error);
+  }
+}
