@@ -19,15 +19,12 @@ const defaultData = {
   channelKey: ""
 }
 
-function ModalApp() {
+function ModalApp({show, close}) {
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
-  const close = () => {
-    // props.toggleModal()
-   }
  
-  const props = { formData, setForm, navigation };
+  const props = { formData, setForm, navigation, show, close };
 
   switch (id) {
     case "first":

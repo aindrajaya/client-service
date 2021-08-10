@@ -82,7 +82,7 @@ const DepositChannel = () => {
                 }}
                 appElement={document.getElementById('app')}
             >
-                <ModalApp close={toggleModal}/>    
+                <ModalApp show={isOpen} close={toggleModal}/>    
             </Modal>
             <Card className={classes.card}>
                 <CardContent className={classes.content}>

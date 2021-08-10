@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const DepositModal = ({formData, navigation}) => {
+const DepositModal = ({formData, navigation,close}) => {
   const classes = useStyles();
   const { handleSubmit, control } = useForm();
 
@@ -134,8 +134,19 @@ const DepositModal = ({formData, navigation}) => {
         <Button onClick={previous} variant="contained" color="primary">
           Back to Channel
         </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Make Transaction
+        <Button 
+          type="submit" 
+          variant="contained" 
+          color="primary"
+          onClick={async () => {
+            setInterval(function(){
+              close()
+              alert("Transactions Done");
+              window.location.reload()
+            },3000);
+          }}
+          >
+          Make Deposit
         </Button>
       </div>
     </form>
