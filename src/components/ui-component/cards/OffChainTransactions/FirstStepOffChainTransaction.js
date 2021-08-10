@@ -119,7 +119,7 @@ const ModalChooseChannel = ({ setForm, formData, navigation }) => {
        <FormGroup variant="outlined" >
        <InputLabel id="demo-simple-select-outlined-label">Choose one of The Channel</InputLabel>
         <ListChannels label="Channel" name="channel" value={channel} onChange={setForm}/>  
-        <LastKey label="Last" name="lastKey" value={lastKey} onChange={setForm}/>
+        <LastKey style={{marginTop: '1em'}} label="Last" name="lastKey" value={lastKey} onChange={setForm}/>
         <Button style={{marginTop: '1em'}} onClick={next} variant="contained" color="primary">
           Next
         </Button>

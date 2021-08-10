@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const OffChainModal = ({formData, navigation}) => {
+const OffChainModal = ({formData, navigation, close}) => {
   const classes = useStyles();
   const { handleSubmit, control} = useForm();
   
@@ -134,7 +134,18 @@ const OffChainModal = ({formData, navigation}) => {
         <Button onClick={previous} variant="contained" color="primary">
           Back to Channel
         </Button>
-        <Button type="submit" variant="contained" color="primary">
+        <Button 
+          type="submit" 
+          variant="contained" 
+          color="primary"
+          onClick={async () => {
+            setInterval(function(){
+              close()
+              alert("Transactions Done");
+              window.location.reload()
+            },3000);
+          }}
+          >
           Make Transaction
         </Button>
       </div>

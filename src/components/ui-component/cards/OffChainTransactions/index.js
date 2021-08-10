@@ -82,18 +82,18 @@ const OffChainTransactions = () => {
                 }}
                 appElement={document.getElementById('app')}
             >
-                <ModalApp close={toggleModal}/>    
+                <ModalApp show={isOpen} close={toggleModal}/>    
             </Modal>
             <Card className={classes.card}>
                 <CardContent className={classes.content}>
                     <List className={classes.padding}>
                         <ListItem alignItems="center" disableGutters className={classes.padding}>
-                            <ListItemAvatar>
+                            {/* <ListItemAvatar>
                                 <Avatar variant="rounded" className={classes.avatar} onClick={toggleModal}>
                                     <TransferWithinAStationIcon fontSize="inherit" />
                                 </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText
+                            </ListItemAvatar> */}
+                            {/* <ListItemText
                                 className={classes.padding}
                                 primary={
                                     <Typography variant="h4" className={classes.primary}>
@@ -105,7 +105,7 @@ const OffChainTransactions = () => {
                                         Try to make a deposit first to open off-chain transaction by using token
                                     </Typography>
                                 }
-                            />
+                            /> */}
                         </ListItem>
                     </List>
                 </CardContent>
